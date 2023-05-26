@@ -13,9 +13,9 @@ const StackNavigator = () => {
         headerShown: false,
       }}
     >
-      <Stack.Screen name="TabNavigation" component={TabNavigation} />
-      <Stack.Screen name="SignInPage" component={SignInPage} />
       <Stack.Screen name="SignUpPage" component={SignUpPage} />
+      <Stack.Screen name="SignInPage" component={SignInPage} />
+      <Stack.Screen name="TabNavigation" component={TabNavigation} />
     </Stack.Navigator>
   );
 };

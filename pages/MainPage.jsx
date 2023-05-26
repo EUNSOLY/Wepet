@@ -38,27 +38,27 @@ export default function MainPage({ navigation, route }) {
         <Text>앱소개가 들어갑니다.</Text>
       </Box>
       <Box>
-        <Text pb={2} color={"#232323"} fontFamily={"SUITE-Bold"}>
+        <Text px={3} pb={2} color={"#232323"} fontFamily={"SUITE-Bold"}>
           <Text color={"#53DBA1"}>우리</Text>
           애기 좀 보세요!
         </Text>
-        <ScrollView mb={3} borderWidth={1} w={"100%"} horizontal={true}>
-          <HStack w={"100%"} borderWidth={1} borderColor={"red.500"}>
-            <Box>
+        <ScrollView mb={3} w={"100%"} horizontal={true}>
+          <HStack w={"100%"}>
+            <Box w={200} borderRadius={10} overflow={"hidden"} mx={1}>
               <ImageBlurLoading
                 thumbnailSource={image1}
                 source={image1}
                 style={styles.image}
               />
             </Box>
-            <Box>
+            <Box w={200} borderRadius={10} overflow={"hidden"} mx={1}>
               <ImageBlurLoading
                 thumbnailSource={image2}
                 source={image2}
                 style={styles.image}
               />
             </Box>
-            <Box>
+            <Box w={200} borderRadius={10} overflow={"hidden"} mx={1}>
               <ImageBlurLoading
                 thumbnailSource={image3}
                 source={image3}
@@ -88,7 +88,7 @@ export default function MainPage({ navigation, route }) {
 }
 const styles = StyleSheet.create({
   image: {
-    width: width,
+    width: "100%",
     objectFit: "cover",
   },
 });
