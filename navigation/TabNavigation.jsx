@@ -30,7 +30,7 @@ function TabNavigation() {
           } else if (route.name === "MyPage") {
             iconName += "person-circle-outline";
           }
-          console.log("icon", route);
+          // console.log("icon", route);
           return (
             <Ionicons
               name={iconName}

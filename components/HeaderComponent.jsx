@@ -19,7 +19,7 @@ const logo = require("../assets/logo.png");
 export default function HeaderComponent({ navigation, route }) {
   const goHome = () => {
     navigation.navigate("MainPage");
-    console.log("홈");
+    // console.log("홈");
   };
   const goBack = () => {
     navigation.goBack();
