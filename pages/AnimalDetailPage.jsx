@@ -1,3 +1,4 @@
+
 import React from "react";
 import { StyleSheet, Dimensions } from "react-native";
 import {
@@ -16,12 +17,26 @@ import HeaderComponent from "../components/HeaderComponent";
 import ImageBlurLoading from "react-native-image-blur-loading";
 import { useState, useEffect } from "react";
 import { Ionicons } from "@expo/vector-icons";
+import MapView from 'react-native-maps';
+import { PROVIDER_GOOGLE } from 'react-native-maps';
 export default function AnimalDetailPage({ navigation, route }) {
   const userImage = require("../assets/post.png");
   const List = route.params.content;
   return (
     <ScrollView backgroundColor={"#fff"}>
       <HeaderComponent navigation={navigation} route={route} />
+      <MapView // 셀프클로징해도 되지만 후의 마커를 위해서
+		style={styles.map}
+		// initialRegion={{
+    //         latitude: 37.00000,
+    //         longitude: 126.00000,
+    //         latitudeDelta: 0.01,
+    //         longitudeDelta: 0.01,
+    //       }}
+    //     provider={PROVIDER_GOOGLE}
+		>
+      
+        </MapView> 
       <Center w={"100%"} h={200} borderWidth={1}>
         여기 지도
       </Center>
@@ -87,5 +102,9 @@ const styles = StyleSheet.create({
     width: 40,
     height: 40,
     borderRadius: 50,
+  },
+    map: {
+    width: '100%',
+    height: '100%',
   },
 });
