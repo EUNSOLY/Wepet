@@ -15,7 +15,13 @@ import { useState, useEffect } from "react";
 import StackNavigator from "./navigation/StackNavigation";
 import { useFonts } from "expo-font";
 
+// 데이터바인딩
+import testData from "./data/testData";
+import animal from "./data/AnimalhospiceData";
 export default function App() {
+  const [data, setData] = useState([]);
+  const [animalData, setAnimalData] = useState([]);
+  const [userData, setUserData] = useState([...testData].slice(0, 5));
   const [ready, setReady] = useState(false);
   const [font] = useFonts({
     "SUITE-Light": require("./assets/fonts/SUITE-Light.ttf"),
@@ -23,6 +29,8 @@ export default function App() {
   });
 
   useEffect(() => {
+    setData(testData);
+    setAnimalData(animal);
     setTimeout(() => {
       setReady(true);
     }, 2000);
@@ -37,7 +45,7 @@ export default function App() {
     return (
       <NativeBaseProvider>
         <NavigationContainer>
-          <StackNavigator />
+          <StackNavigator data={data} animalData={animalData} />
         </NavigationContainer>
       </NativeBaseProvider>
     );

@@ -1,47 +1,30 @@
 import React from "react";
 import { StyleSheet, TouchableOpacity, Dimensions } from "react-native";
-import {
-  VStack,
-  HStack,
-  Button,
-  IconButton,
-  Icon,
-  Text,
-  NativeBaseProvider,
-  Center,
-  Box,
-  StatusBar,
-  ScrollView,
-} from "native-base";
-const width = Dimensions.get("window").width / 3;
-const height = Dimensions.get("window").width / 3;
+import { VStack, HStack, Text, Box, ScrollView, Pressable } from "native-base";
+
 import HeaderComponent from "../components/HeaderComponent";
 import BsetUser from "../components/BsetUser";
 import TitleComponent from "../components/TitleComponent";
 import AnimalList from "../components/AnimalList";
 import ImageBlurLoading from "react-native-image-blur-loading";
 import { useEffect, useState } from "react";
-const image1 = require("../assets/post.png");
-const image2 = require("../assets/post2.png");
-const image3 = require("../assets/post3.png");
+import PagePressComponent from "../components/PagePressComponent";
 
 // 그라디언트
-// import LinearGradient from "react-native-linear-gradient";
 import { LinearGradient } from "expo-linear-gradient";
-export default function MainPage({ navigation, route }) {
+export default function MainPage({ navigation, route, dataList, animalData }) {
+  const [data, setData] = useState(dataList);
+  const [userData, setUserData] = useState([...dataList].slice(0, 5));
+
   return (
     <ScrollView backgroundColor={"#fff"} w={"100%"}>
       <HeaderComponent navigation={navigation} route={route} />
-      <Box
-        backgroundColor={"#ddd"}
-        w={"100%"}
-        h={150}
-        justifyContent={"center"}
-        alignItems={"center"}
-        mb={3}
-      >
-        <Text>앱소개가 들어갑니다.</Text>
-      </Box>
+      <PagePressComponent
+        navigation={navigation}
+        route={route}
+        content={data}
+      />
+
       {/* 우리애기자랑 */}
       <Box mt={"30px"} mb={"30px"}>
         <TitleComponent
@@ -50,31 +33,34 @@ export default function MainPage({ navigation, route }) {
           more={"블로그목록더보기"}
           navigation={navigation}
           route={route}
+          data={data}
         />
 
         <ScrollView mb={3} w={"100%"} horizontal={true}>
           <HStack w={"100%"}>
-            <Box w={200} borderRadius={10} overflow={"hidden"} mx={1}>
-              <ImageBlurLoading
-                thumbnailSource={image1}
-                source={image1}
-                style={styles.image}
-              />
-            </Box>
-            <Box w={200} borderRadius={10} overflow={"hidden"} mx={1}>
-              <ImageBlurLoading
-                thumbnailSource={image2}
-                source={image2}
-                style={styles.image}
-              />
-            </Box>
-            <Box w={200} borderRadius={10} overflow={"hidden"} mx={1}>
-              <ImageBlurLoading
-                thumbnailSource={image3}
-                source={image3}
-                style={styles.image}
-              />
-            </Box>
+            {data.map((item, i) => {
+              const goDetail = () => {
+                console.log("디테일페이지 이동");
+                navigation.navigate("DetailPage", { data: item });
+              };
+              return (
+                <Pressable
+                  onPress={goDetail}
+                  key={item.id}
+                  w={200}
+                  h={180}
+                  borderRadius={10}
+                  overflow={"hidden"}
+                  mx={1}
+                >
+                  <ImageBlurLoading
+                    thumbnailSource={{ uri: item.image }}
+                    source={{ uri: item.image }}
+                    style={styles.image}
+                  />
+                </Pressable>
+              );
+            })}
           </HStack>
         </ScrollView>
       </Box>
@@ -86,33 +72,47 @@ export default function MainPage({ navigation, route }) {
             subtitle={"들의 인기스타"}
             navigation={navigation}
             route={route}
+            content={data}
           />
           <HStack w={"100%"} justifyContent={"center"}>
-            <BsetUser navigation={navigation} route={route} />
-            <BsetUser navigation={navigation} route={route} />
-            <BsetUser navigation={navigation} route={route} />
-            <BsetUser navigation={navigation} route={route} />
-            <BsetUser navigation={navigation} route={route} />
+            {userData.map((item, i) => {
+              return (
+                <BsetUser
+                  navigation={navigation}
+                  route={route}
+                  item={item}
+                  key={i}
+                />
+              );
+            })}
           </HStack>
         </Box>
         {/* 동물병원 */}
         <Box mt={"30px"}>
           <TitleComponent
+            content={data}
             title={"우리"}
             subtitle={"동네 동물병원"}
             more={"동물병원더보기"}
             navigation={navigation}
             route={route}
           />
-
-          <AnimalList />
-          <AnimalList />
-          <AnimalList />
-          <AnimalList />
+          {animalData.map((item, i) => {
+            return (
+              <AnimalList
+                item={item}
+                key={i}
+                animalData={animalData}
+                navigation={navigation}
+                route={route}
+              />
+            );
+          })}
         </Box>
 
         <Box mt={"30px"}>
           <TitleComponent
+            content={data}
             navigation={navigation}
             route={route}
             title={"우리"}
@@ -184,6 +184,7 @@ export default function MainPage({ navigation, route }) {
 const styles = StyleSheet.create({
   image: {
     width: "100%",
+    height: "100%",
     objectFit: "cover",
   },
   container: {

@@ -17,18 +17,28 @@ import BsetUser from "../components/BsetUser";
 import TitleComponent from "../components/TitleComponent";
 import HeaderComponent from "../components/HeaderComponent";
 import BlogComponent from "../components/BlogComponent";
-export default function CommunityPage({ navigation, route }) {
+import { useState, useEffect } from "react";
+
+export default function CommunityPage({ navigation, route, dataList }) {
+  const [data] = useState(dataList);
+  const [userData, setUserData] = useState([...dataList].slice(0, 5));
+
   return (
     <ScrollView w={"100%"} backgroundColor={"#fff"}>
       <HeaderComponent navigation={navigation} route={route} />
       <Box my={"30px"}>
         <TitleComponent title={"우리"} subtitle={"들의 인기스타"} />
         <HStack w={"100%"} justifyContent={"center"}>
-          <BsetUser navigation={navigation} route={route} />
-          <BsetUser navigation={navigation} route={route} />
-          <BsetUser navigation={navigation} route={route} />
-          <BsetUser navigation={navigation} route={route} />
-          <BsetUser navigation={navigation} route={route} />
+          {userData.map((item, i) => {
+            return (
+              <BsetUser
+                navigation={navigation}
+                route={route}
+                item={item}
+                key={i}
+              />
+            );
+          })}
         </HStack>
       </Box>
       <Box>
@@ -40,7 +50,17 @@ export default function CommunityPage({ navigation, route }) {
           route={route}
         />
       </Box>
-      <BlogComponent />
+      {data.map((item, i) => {
+        return (
+          <BlogComponent
+            content={item}
+            key={i}
+            i={i}
+            navigation={navigation}
+            route={route}
+          />
+        );
+      })}
     </ScrollView>
   );
 }

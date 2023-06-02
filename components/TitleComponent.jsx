@@ -1,5 +1,7 @@
 import React from "react";
 import { StyleSheet, TouchableOpacity } from "react-native";
+import { Ionicons } from "@expo/vector-icons";
+
 import {
   VStack,
   HStack,
@@ -19,17 +21,19 @@ export default function TitleComponent({
   more,
   navigation,
   route,
+  data,
 }) {
-  console.log(route, "타이틀");
-
   const goCommu = () => {
-    console.log("실행");
-    console.log("타이틀", navigation);
-    if (route.name == "CommunityPage") {
-      return false;
+    console.log(subtitle);
+    if (more == "블로그목록더보기") {
+      navigation.navigate("CommunityPage", { content: data });
+    } else if (more == "동물병원더보기") {
+      navigation.navigate("AnimalhospicePage");
+    } else if (more == "꿀팁더보기") {
+      navigation.navigate("TipPage");
     }
-    navigation.navigate("CommunityPage");
   };
+
   return (
     <HStack pr={2} justifyContent={"space-between"}>
       <Text px={3} pb={2} color={"#232323"} fontFamily={"SUITE-Bold"}>
@@ -44,9 +48,11 @@ export default function TitleComponent({
             fontFamily={"SUITE-Light"}
             fontSize={12}
             // style={styles.hidden}
-            style={route.name == "CommunityPage" ? styles.hidden : null}
+            style={route.name == "TabNavigation" ? styles.hidden : null}
+            textAlign="center"
           >
             더보기
+            <Ionicons name="md-chevron-forward" size={14} color="#c8c8c8" />
           </Text>
         </TouchableOpacity>
       ) : null}

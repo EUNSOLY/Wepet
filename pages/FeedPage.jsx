@@ -3,14 +3,8 @@ import React from "react";
 import {
   VStack,
   HStack,
-  Button,
-  IconButton,
-  Icon,
   Text,
-  NativeBaseProvider,
   Center,
-  Box,
-  StatusBar,
   ScrollView,
   Pressable,
   Flex,
@@ -24,28 +18,23 @@ import { Ionicons } from "@expo/vector-icons";
 import { useState } from "react";
 const my = require("../assets/user1.png");
 const imgWidth = Dimensions.get("window").width / 3;
-export default function MyPage({ navigation, route }) {
+export default function FeedPage({ navigation, route, user }) {
+  const myUser = route.params.user;
   const [postClick, setPostClick] = useState(true);
   const [userClick, setUserClick] = useState(false);
   const [likeClick, setLikeClick] = useState(false);
+
   return (
     <ScrollView backgroundColor={"#fff"}>
       <HeaderComponent navigation={navigation} route={route} />
 
       <Center px={4}>
-        <HStack alignItems={"center"} mt={5} w={"100%"}>
+        <HStack alignItems={"flex-start"} mt={5} w={"100%"}>
           <VStack mr={5}>
-            <ImageBlurLoading source={my} style={styles.thumbnail} />
-            <Pressable>
-              <Text
-                my={1.5}
-                fontSize={11}
-                color={"#c8c8c8"}
-                fontFamily={"SUITE-Light"}
-              >
-                프로필 편집
-              </Text>
-            </Pressable>
+            <ImageBlurLoading
+              source={{ uri: myUser.image }}
+              style={styles.thumbnail}
+            />
           </VStack>
           <VStack mr={2} w={"83%"}>
             <Text fontFamily={"SUITE-Bold"} fontSize={15}>
@@ -54,7 +43,7 @@ export default function MyPage({ navigation, route }) {
             <Text fontSize={13} fontFamily={"SUITE-Light"}>
               user소개
             </Text>
-            <Flex flexDirection={"row"}>
+            <Flex flexDirection={"row"} my={3}>
               <HStack w={"30%"} alignItems={"center"}>
                 <Text mr={1.5} fontFamily={"SUITE-Bold"} fontSize={15}>
                   게시글
@@ -83,7 +72,18 @@ export default function MyPage({ navigation, route }) {
           </VStack>
         </HStack>
       </Center>
-
+      <HStack w={"100%"} justifyContent={"center"}>
+        <Pressable mx={1} backgroundColor={"#7FD1AE"} px={10} py={1}>
+          <Text color={"#fff"} fontFamily={"SUITE-Bold"}>
+            팔로잉
+          </Text>
+        </Pressable>
+        <Pressable mx={1} backgroundColor={"#7FD1AE"} px={10} py={1}>
+          <Text color={"#fff"} fontFamily={"SUITE-Bold"}>
+            메세지
+          </Text>
+        </Pressable>
+      </HStack>
       <HStack w={"100%"} mt={4} backgroundColor={"#F7F7FE"} py={4}>
         <Pressable
           w={imgWidth}

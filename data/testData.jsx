@@ -1,0 +1,136 @@
+let a = [
+  {
+    id: 0,
+    name: "이월이",
+    title: "제목이 들어가는 공간입니다0.",
+    content:
+      "컨텐츠가 들어가는 공간입니다 근데 이게 진짜 긴경우가 있어서 아무말이나 쓰는중입니다 2줄이상 표현되지않지만 현재는 예비 데이터로 작서주입니다. 햐햐햐.",
+    tiem: "시간이 입력됩니다",
+    comment: "댓글이 입렫되는데이터",
+    good: 0,
+    Creationtime: "3시간전",
+    image:
+      "https://image.utoimage.com/preview/cp872722/2022/12/202212008462_500.jpg",
+  },
+  {
+    id: 1,
+    name: "소금이",
+    title: "제목이 들어가는 공간입니다1.",
+    content: "컨텐츠가 들어가는 공간입니다.",
+    tiem: "시간이 입력됩니다",
+    comment: "댓글이 입렫되는데이터",
+    good: 0,
+    Creationtime: "3시간전",
+    image:
+      "https://mblogthumb-phinf.pstatic.net/MjAxNjExMTlfMTk0/MDAxNDc5NTM3MDQwMzA0.7ltVaFBd51PGSVqwTcoDZBD61OBaTn-alF1n7fSVHfog.hRI45oZ7RGiJu86ZoFmNx89yN68XKR7dpMhTKOAMGxMg.JPEG.korinatour/%EA%B0%95%EC%95%84%EC%A7%80%EC%82%AC%EC%A7%842.jpg?type=w2",
+  },
+  {
+    id: 2,
+    name: "시월이",
+    title: "제목이 들어가는 공간입니다2.",
+    content: "컨텐츠가 들어가는 공간입니다.",
+    tiem: "시간이 입력됩니다",
+    comment: "댓글이 입렫되는데이터",
+    good: 0,
+    Creationtime: "3시간전",
+    image:
+      "https://images.mypetlife.co.kr/content/uploads/2021/10/22152410/IMG_2087-scaled-e1634883900174-1024x739.jpg",
+  },
+  {
+    id: 3,
+    name: "사월이",
+    title: "제목이 들어가는 공간입니다3.",
+    content: "컨텐츠가 들어가는 공간입니다.",
+    tiem: "시간이 입력됩니다",
+    comment: "댓글이 입렫되는데이터",
+    good: 0,
+    Creationtime: "3시간전",
+    image:
+      "https://image.dongascience.com/Photo/2022/06/6982fdc1054c503af88bdefeeb7c8fa8.jpg",
+  },
+  {
+    id: 4,
+    name: "땅콩",
+    title: "제목이 들어가는 공간입니다4.",
+    content: "컨텐츠가 들어가는 공간입니다.",
+    tiem: "시간이 입력됩니다",
+    comment: "댓글이 입렫되는데이터",
+    good: 0,
+    Creationtime: "3시간전",
+    image:
+      "https://product.cdn.cevaws.com/var/storage/images/media/adaptil-2017/images/www-ww/shutterstock_395310793-3-2/3547034-1-www-WW/shutterstock_395310793-3-2.jpg",
+  },
+  {
+    id: 5,
+    name: "금쪽",
+    title: "제목이 들어가는 공간입니다5.",
+    content: "컨텐츠가 들어가는 공간입니다.",
+    tiem: "시간이 입력됩니다",
+    comment: "댓글이 입렫되는데이터",
+    good: 0,
+    Creationtime: "3시간전",
+    image:
+      "https://img.freepik.com/free-psd/portrait-of-an-adorable-golden-retriever-puppy_53876-73975.jpg",
+  },
+  {
+    id: 6,
+    name: "이월이",
+    title: "제목이 들어가는 공간입니다6.",
+    content: "컨텐츠가 들어가는 공간입니다.",
+    tiem: "시간이 입력됩니다",
+    comment: "댓글이 입렫되는데이터",
+    good: 0,
+    Creationtime: "3시간전",
+    image:
+      "https://newsimg.hankookilbo.com/cms/articlerelease/2020/09/13/c22a51dd-d1f8-48d2-82ad-f18a671078be.jpg",
+  },
+  {
+    id: 7,
+    name: "이월이",
+    title: "제목이 들어가는 공간입니다7.",
+    content: "컨텐츠가 들어가는 공간입니다.",
+    tiem: "시간이 입력됩니다",
+    comment: "댓글이 입렫되는데이터",
+    good: 0,
+    Creationtime: "3시간전",
+    image:
+      "https://www.fitpetmall.com/wp-content/uploads/2023/02/CK_tc02730000546-edited-scaled.jpg",
+  },
+  {
+    id: 8,
+    name: "이월이",
+    title: "제목이 들어가는 공간입니다8.",
+    content: "컨텐츠가 들어가는 공간입니다.",
+    tiem: "시간이 입력됩니다",
+    comment: "댓글이 입렫되는데이터",
+    good: 0,
+    Creationtime: "3시간전",
+    image:
+      "https://img.hani.co.kr/imgdb/resize/2019/0121/00501111_20190121.JPG",
+  },
+  {
+    id: 9,
+    name: "이월이",
+    title: "제목이 들어가는 공간입니다9.",
+    content: "컨텐츠가 들어가는 공간입니다.",
+    tiem: "시간이 입력됩니다",
+    comment: "댓글이 입렫되는데이터",
+    good: 0,
+    Creationtime: "3시간전",
+    image: "https://i.scdn.co/image/ab67616d0000b273239cb0e803f9501711a23cd1",
+  },
+  {
+    id: 10,
+    name: "이월이",
+    title: "제목이 들어가는 공간입니다10.",
+    content: "컨텐츠가 들어가는 공간입니다.",
+    tiem: "시간이 입력됩니다",
+    comment: "댓글이 입렫되는데이터",
+    good: 0,
+    Creationtime: "3시간전",
+    image:
+      "https://blog.kakaocdn.net/dn/bTEhUV/btqECug9iOs/mxgZUk4MLJVCK3xtcNe6NK/img.jpg",
+  },
+];
+
+export default a;

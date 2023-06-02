@@ -1,3 +1,4 @@
+import { StyleSheet, Dimensions } from "react-native";
 import React from "react";
 import {
   VStack,
@@ -10,13 +11,16 @@ import {
   Center,
   Box,
   StatusBar,
+  ScrollView,
+  Pressable,
+  Flex,
 } from "native-base";
 import HeaderComponent from "../components/HeaderComponent";
-export default function LikePage({ navigation, route }) {
+export default function TipPage({ navigation, route }) {
   return (
-    <Center flex={1} justifyContent={"flex-start"} backgroundColor={"#fff"}>
+    <ScrollView backgroundColor={"#fff"}>
       <HeaderComponent navigation={navigation} route={route} />
-      <Text>라이크페이지</Text>
-    </Center>
+      <Text>팁페이지</Text>
+    </ScrollView>
   );
 }
