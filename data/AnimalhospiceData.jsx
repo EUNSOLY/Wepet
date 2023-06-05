@@ -8,6 +8,8 @@ let data = [
     image:
       "https://www.dailyvet.co.kr/wp-content/uploads/2022/04/20220405eyedeal1.jpg",
     comment: ["좋네요"],
+    latitude: 36.3454962470593,
+    longitude: 127.381727354891,
   },
   {
     id: 1,
@@ -18,6 +20,8 @@ let data = [
     image:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3wh43n8sMSoHNgO38VAVWLq8aWY2oaslyymD1evH8lj-N1fe5PtePI7Pj-PSCZFuWM8U&usqp=CAU",
     comment: ["좋네요", "친절해요", "착해요"],
+    latitude: 36.3487273020417,
+    longitude: 127.387945609422,
   },
   {
     id: 2,
@@ -27,6 +31,8 @@ let data = [
     good: 0,
     image: "https://cdn.imweb.me/thumbnail/20201130/a6fb3d3decdb6.png",
     comment: ["좋네요", "친절해요", "착해요"],
+    latitude: 36.3487273020417,
+    longitude: 127.387945609422,
   },
   {
     id: 3,
@@ -37,6 +43,8 @@ let data = [
     image:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyX0Kt8npymHv-6ddIAQ3efpQHe6it0gbFtQaqWmKeSca5FEyVem3yk7mAl22d4sFRF00&usqp=CAU",
     comment: ["좋네요", "친절해요", "착해요"],
+    latitude: 36.3454962470593,
+    longitude: 127.381727354891,
   },
   {
     id: 4,
@@ -46,6 +54,8 @@ let data = [
     good: 0,
     image: "https://t1.daumcdn.net/cfile/blog/212ABC4B5497A04B2C",
     comment: ["좋네요", "친절해요"],
+    latitude: 36.3454962470593,
+    longitude: 127.381727354891,
   },
 ];
 

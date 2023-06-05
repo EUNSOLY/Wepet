@@ -15,9 +15,69 @@ import {
 import InputItem from "../components/InputItem";
 import SnsButton from "../components/SnsButton";
 
+import { auth } from "../config/fireBase";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { useState } from "react";
+
 export default function SignUpPage({ navigation, route }) {
+  const [email, setEmail] = useState("");
+  const [emailError, setEmailError] = useState("");
+  const [password, setPassword] = useState("");
+  const [passwordError, setPasswordError] = useState("");
+  const [nickName, setnickName] = useState("");
+  const [NickNameError, setNickNameError] = useState("");
+  const [passwordConfirm, setPasswordConfirm] = useState("");
+  const [passwordConfirmError, setPasswordConfirmError] = useState("");
   const goLogoin = () => {
-    navigation.navigate("SignInPage");
+    console.log("회원가입 시작");
+    if (nickName === "") {
+      setNickNameError("반려견이름을 입력해주세요");
+      return false;
+    } else {
+      setNickNameError("");
+    }
+    if (email === "") {
+      setEmailError("이메일을 입력해주세요");
+      return false;
+    } else {
+      setEmailError("");
+    }
+    if (password === "") {
+      setPasswordError("비밀번호를 입력해주세요");
+      return false;
+    } else {
+      setPasswordError("");
+    }
+    console.log("조건문통과");
+    //회원가입 처리
+    createUserWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        // Signed in
+        const user = userCredential.user;
+        console.log("가입성공", user);
+        // goSignin();
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log("가입실패", errorCode, errorMessage);
+      });
+
+    // navigation.navigate("SignInPage");
+  };
+
+  const setEmailFunc = (itemInputEmail) => {
+    // 이메일 상태값 관리 함수
+    setEmail(itemInputEmail);
+  };
+  const setPasswordFunc = (itemInputPassword) => {
+    // 패스워드 상태값 관리 함수
+    setPassword(itemInputPassword);
+  };
+
+  const setNickNameFunc = (itemInputNickName) => {
+    // 닉네임 상태값 관리 함수
+    setnickName(itemInputNickName);
   };
 
   return (
@@ -37,9 +97,27 @@ export default function SignUpPage({ navigation, route }) {
         Sign Up
       </Text>
       <VStack px={3}>
-        <InputItem title={"닉네임"} icon={"user"} type={"text"} />
-        <InputItem title={"이메일"} icon={"mail"} type={"text"} />
-        <InputItem title={"비밀번호"} icon={"lock"} type={"password"} />
+        <InputItem
+          title={"닉네임"}
+          icon={"user"}
+          type={"text"}
+          error={NickNameError}
+          setFunc={setNickNameFunc}
+        />
+        <InputItem
+          title={"이메일"}
+          icon={"mail"}
+          type={"text"}
+          error={emailError}
+          setFunc={setEmailFunc}
+        />
+        <InputItem
+          title={"비밀번호"}
+          icon={"lock"}
+          type={"password"}
+          error={passwordError}
+          setFunc={setPasswordFunc}
+        />
       </VStack>
 
       <Button backgroundColor={"#009FF6"} w={"30%"} onPress={goLogoin}>

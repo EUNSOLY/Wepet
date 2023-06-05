@@ -13,6 +13,7 @@ import {
 import { StyleSheet, TouchableOpacity } from "react-native";
 import InputItem from "../components/InputItem";
 import SnsButton from "../components/SnsButton";
+import { useState } from "react";
 const logoImage = require("../assets/WePet.png");
 export default function SignInPage({ navigation, route }) {
   const logIn = () => {
@@ -20,6 +21,31 @@ export default function SignInPage({ navigation, route }) {
   };
   const signUp = () => {
     navigation.navigate("SignUpPage");
+  };
+  const [email, setEmail] = useState("");
+  const [emailError, setEmailError] = useState("");
+  const [password, setPassword] = useState("");
+  const [passwordError, setPasswordError] = useState("");
+  // 이메일 상태관리
+  const setEmailFunc = (itemInputEmail) => {
+    setEmail(itemInputEmail);
+  };
+  // 비밀번호 상태관리
+  const setPasswordFunc = (itemInputPassword) => {
+    setPassword(itemInputPassword);
+  };
+
+  const doSignIn = () => {
+    if (email === "") {
+      setEmailError("이메일을 입력해수제쇼");
+    } else {
+      setEmailError("");
+    }
+    if (password === "") {
+      setPasswordError("비밀번호를 입력해주세요");
+    } else {
+      setPasswordError("");
+    }
   };
   return (
     <Center flex={1} backgroundColor={"#fff"} justifyContent={"flex-start"}>
@@ -35,8 +61,20 @@ export default function SignInPage({ navigation, route }) {
         우리동네 모임에 오신걸 환영합니다:{"\u0029"}
       </Text>
       <VStack px={3}>
-        <InputItem title={"이메일"} icon={"mail"} type={"text"} />
-        <InputItem title={"비밀번호"} icon={"lock"} type={"password"} />
+        <InputItem
+          title={"이메일"}
+          icon={"mail"}
+          type={"text"}
+          error={emailError}
+          setFunc={setEmailFunc}
+        />
+        <InputItem
+          title={"비밀번호"}
+          icon={"lock"}
+          type={"password"}
+          error={passwordError}
+          setFunc={setPasswordFunc}
+        />
       </VStack>
       <HStack w={"100%"} justifyContent={"center"} alignItems={"center"} mb={3}>
         <TouchableOpacity style={styles.textContainer}>

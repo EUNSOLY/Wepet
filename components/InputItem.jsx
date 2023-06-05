@@ -12,7 +12,7 @@ import {
   Input,
 } from "native-base";
 import { AntDesign } from "@expo/vector-icons";
-export default function InputItem({ title, icon, type, error }) {
+export default function InputItem({ title, icon, type, error, setFunc }) {
   return (
     <FormControl>
       <FormControl.Label
@@ -44,6 +44,7 @@ export default function InputItem({ title, icon, type, error }) {
           type={type}
           fontSize={12}
           fontFamily={"SUITE-Bold"}
+          onChange={(text) => setFunc(text)}
         />
       </FormControl.Label>
       <Text fontFamily={"SUITE-Light"} fontSize={11} color={"red.500"} pl={5}>

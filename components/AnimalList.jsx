@@ -27,7 +27,7 @@ export default function AnimalList({ item, navigation, route }) {
               {item.comment.map((item, i) => {
                 return (
                   <Text key={i} color={"#C8C8C8"} fontFamily={"SUITE-Light"}>
-                    "{item}"{" "}
+                    {item}
                   </Text>
                 );
               })}

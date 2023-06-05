@@ -16,14 +16,14 @@ const StackNavigator = ({ data, animalData }) => {
         headerShown: false,
       }}
     >
+      <Stack.Screen name="SignInPage" component={SignInPage} />
+      <Stack.Screen name="SignUpPage" component={SignUpPage} />
       <Stack.Screen name="TabNavigation">
         {(props) => (
           <TabNavigation {...props} data={data} animalData={animalData} />
         )}
       </Stack.Screen>
 
-      <Stack.Screen name="SignUpPage" component={SignUpPage} />
-      <Stack.Screen name="SignInPage" component={SignInPage} />
       <Stack.Screen name="TipPage" component={TipPage} />
       <Stack.Screen name="AnimalDetailPage" component={AnimalDetailPage} />
     </Stack.Navigator>

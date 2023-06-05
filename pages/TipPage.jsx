@@ -20,7 +20,9 @@ export default function TipPage({ navigation, route }) {
   return (
     <ScrollView backgroundColor={"#fff"}>
       <HeaderComponent navigation={navigation} route={route} />
-      <Text>팁페이지</Text>
+      <Center>
+        <Text>꿀팁을 준비중입니다.</Text>
+      </Center>
     </ScrollView>
   );
 }

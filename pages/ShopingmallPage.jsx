@@ -18,9 +18,11 @@ import {
 import HeaderComponent from "../components/HeaderComponent";
 export default function ShopingmallPage({ navigation, route }) {
   return (
-    <ScrollView backgroundColor={"#fff"}>
+    <Center flex={1} justifyContent={"flex-start"} backgroundColor={"#fff"}>
       <HeaderComponent navigation={navigation} route={route} />
-      <Text>쇼핑몰 페이지 입니다.</Text>
-    </ScrollView>
+      <Text flex={1} w={"100%"} textAlign={"center"}>
+        쇼핑몰 준비중입니다
+      </Text>
+    </Center>
   );
 }
