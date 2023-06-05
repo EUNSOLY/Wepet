@@ -42,7 +42,7 @@ Wepet은 반려동물들과의 추억을 함께 할 수 있도록 반려SNS형�
 
 <br/>
 
-## 📌사용 툴
+### 📌사용 툴
  <img src="https://img.shields.io/badge/피그마-F24E1E?style=flatt&logo=Figma&logoColor=white"/> <img src="https://img.shields.io/badge/AdobePhotoshop-31A8FF?style=flatt&logo=Adobe Photoshop&logoColor=white"/> <img src="https://img.shields.io/badge/Visual Studio Code-007ACC?style=flatt&logo=Visual Studio Code&logoColor=white"/>
 
 <br/>
