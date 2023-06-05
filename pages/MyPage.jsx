@@ -52,6 +52,7 @@ export default function MyPage({ navigation, route }) {
         (snapshot) => {
           const updateData = snapshot.docs.map((doc) => doc.data());
           setData(updateData);
+          
         }
       );
 
@@ -63,7 +64,7 @@ export default function MyPage({ navigation, route }) {
 
     fetchData();
   }, []);
-
+  
   // user diary data가져오기
   const getData = async (uid) => {
     const q = query(collection(db, "diary"), where("uid", "==", uid));
@@ -105,7 +106,7 @@ export default function MyPage({ navigation, route }) {
         console.log(err);
       });
   };
-  return (
+  return data.length > 0 ? (
     <ScrollView backgroundColor={"#fff"}>
       <HeaderComponent navigation={navigation} route={route} />
 
@@ -141,7 +142,8 @@ export default function MyPage({ navigation, route }) {
           </VStack>
           <VStack mr={2} w={"83%"}>
             <Text fontFamily={"SUITE-Bold"} fontSize={15}>
-              {/* {data[0].author}님 */}
+              {data[0].author}님
+              
             </Text>
             <Text fontSize={13} fontFamily={"SUITE-Light"}>
               user소개
@@ -259,7 +261,7 @@ export default function MyPage({ navigation, route }) {
         </Flex>
       ) : null}
     </ScrollView>
-  );
+  ) : (<Center flex={1} backgroundColor={"light.50"}><Text>로딩중입니다</Text></Center>)
 }
 const styles = StyleSheet.create({
   thumbnail: {

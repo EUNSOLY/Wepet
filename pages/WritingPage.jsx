@@ -1,15 +1,8 @@
 import React from "react";
 import {
-  VStack,
-  HStack,
-  Button,
-  IconButton,
-  Icon,
   Text,
-  NativeBaseProvider,
   Center,
   Box,
-  StatusBar,
   ScrollView,
   Pressable,
   Input,
@@ -36,9 +29,10 @@ export default function WritingPage({ navigation, route }) {
   // 로딩 상태관리
   const [process, setProcess] = useState(false);
 
+  
   // 현재 유저 정보 가져오기
   const user = auth.currentUser;
-
+  console.log("유저확인중",user);
   if (user) {
     console.log("현재유저 ---", user.uid);
   } else {

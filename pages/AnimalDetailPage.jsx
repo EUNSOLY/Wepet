@@ -7,6 +7,7 @@ import {
   Center,
   Box,
   Pressable,
+  View,
   ScrollView,
   FormControl,
   Input,
@@ -20,37 +21,33 @@ import MapView from "react-native-maps";
 import { PROVIDER_GOOGLE, Marker } from "react-native-maps";
 export default function AnimalDetailPage({ navigation, route }) {
   const userImage = require("../assets/post.png");
-  console.log(route.params.content.위도);
-  console.log(route.params.content.경도);
   const List = route.params.content;
-  const listLa = List.위도;
-  const listLo = List.경도;
+  const latitude = Number(List.위도)
+  const longitude = Number(List.경도)
+  
 
   return (
     <ScrollView backgroundColor={"#fff"}>
       <HeaderComponent navigation={navigation} route={route} />
 
       <Center w={"100%"} h={200}>
-        <MapView
-          style={styles.map}
-          initialRegion={{
-            latitude: listLa,
-            longitude: listLo,
-            latitudeDelta: 0.0405,
-            longitudeDelta: 0.0505,
-          }}
-          provider={PROVIDER_GOOGLE}
-        >
-          <Marker
-            coordinate={{
-              latitude: listLa,
-              longitude: listLo,
+          <MapView
+            style={styles.map}
+            initialRegion={{
+              latitude: latitude,
+              longitude: longitude,
+              latitudeDelta: 0.0052,
+              longitudeDelta: 0.0052,
             }}
-            pinColor="#ff1414"
-            title="하이"
-            // description="테스트"
-          />
-        </MapView>
+          >
+            <Marker
+              coordinate={{
+                latitude: latitude,
+                longitude: longitude,
+              }}
+              title={List.업소명}
+            />
+          </MapView>
       </Center>
       <Box px={3}>
         <HStack>
