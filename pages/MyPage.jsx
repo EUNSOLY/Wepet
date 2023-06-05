@@ -1,33 +1,110 @@
+import ImageBlurLoading from "react-native-image-blur-loading";
 import { StyleSheet, Dimensions } from "react-native";
 import React from "react";
 import {
   VStack,
   HStack,
-  Button,
-  IconButton,
-  Icon,
   Text,
-  NativeBaseProvider,
   Center,
-  Box,
-  StatusBar,
   ScrollView,
   Pressable,
   Flex,
 } from "native-base";
-import ImageBlurLoading from "react-native-image-blur-loading";
 import HeaderComponent from "../components/HeaderComponent";
 import ImageComponent from "../components/ImageComponent";
 import FollowComponent from "../components/FollowComponent";
-import PagePressComponent from "../components/PagePressComponent";
+
 import { Ionicons } from "@expo/vector-icons";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 const my = require("../assets/user1.png");
 const imgWidth = Dimensions.get("window").width / 3;
+import { auth, db } from "../config/fireBase";
+import { signOut } from "firebase/auth";
+import {
+  collection,
+  query,
+  where,
+  getDocs,
+  onSnapshot,
+} from "firebase/firestore";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 export default function MyPage({ navigation, route }) {
   const [postClick, setPostClick] = useState(true);
   const [userClick, setUserClick] = useState(false);
   const [likeClick, setLikeClick] = useState(false);
+  const [data, setData] = useState([]); //데이터 저장변수
+  const [nickName, setNicName] = useState(); // 닉네임 저장변수
+  const [email, setEmail] = useState(); // 이메일 저장변수
+  const [comment, setComment] = useState(); // 댓글저장변수
+  const [uid, setUid] = useState(); // uid 저장변수
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const email = await getSession();
+      setEmail(email);
+      const userData = await getUser(email);
+      setNicName(userData[0].nickName);
+      setUid(userData[0].uid);
+      getData(userData[0].uid);
+
+      const dataList = onSnapshot(
+        query(collection(db, "diary"), where("uid", "==", userData[0].uid)),
+        (snapshot) => {
+          const updateData = snapshot.docs.map((doc) => doc.data());
+          setData(updateData);
+        }
+      );
+
+      return () => {
+        dataList();
+        commentList();
+      };
+    };
+
+    fetchData();
+  }, []);
+
+  // user diary data가져오기
+  const getData = async (uid) => {
+    const q = query(collection(db, "diary"), where("uid", "==", uid));
+    const querySnapshot = await getDocs(q);
+    const diaryData = querySnapshot.docs.map((doc) => doc.data());
+    setData(diaryData);
+  };
+
+  // user의 이메일정보를 활용해서 유저정보가져오기
+  const getUser = async (email) => {
+    const q = query(collection(db, "users"), where("email", "==", email));
+    const querySnapshot = await getDocs(q);
+    return querySnapshot.docs.map((doc) => doc.data());
+  };
+  // 이메일 정보 가져오기 (세션정보)
+  const getSession = async () => {
+    try {
+      const value = await AsyncStorage.getItem("session");
+      if (value) {
+        // console.log("-----------------getSession value값", value);
+        return value;
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
+  const logoutFunc = () => {
+    signOut(auth)
+      .then(() => {
+        console.log("로그아웃");
+        // AsyncStorage에서 session 삭제
+        AsyncStorage.removeItem("session", (err, result) => {
+          console.log("마이페이지 seession--------", result);
+        });
+        // 로그인 페이지로 이동
+        navigation.push("SignInPage");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
   return (
     <ScrollView backgroundColor={"#fff"}>
       <HeaderComponent navigation={navigation} route={route} />
@@ -45,11 +122,26 @@ export default function MyPage({ navigation, route }) {
               >
                 프로필 편집
               </Text>
+              <Pressable
+                onPress={logoutFunc}
+                w={"300px"}
+                position={"absolute"}
+                bottom={"70px"}
+                left={"310px"}
+              >
+                <Text
+                  fontSize={14}
+                  color={"red.500"}
+                  fontFamily={"SUITE-Light"}
+                >
+                  로그아웃
+                </Text>
+              </Pressable>
             </Pressable>
           </VStack>
           <VStack mr={2} w={"83%"}>
             <Text fontFamily={"SUITE-Bold"} fontSize={15}>
-              user네임
+              {/* {data[0].author}님 */}
             </Text>
             <Text fontSize={13} fontFamily={"SUITE-Light"}>
               user소개
@@ -136,11 +228,16 @@ export default function MyPage({ navigation, route }) {
       </HStack>
       {postClick ? (
         <Flex flexDirection={"row"} flexWrap={"wrap"} borderColor={"red"}>
-          <ImageComponent />
-          <ImageComponent />
-          <ImageComponent />
-          <ImageComponent />
-          <ImageComponent />
+          {data.map((item, i) => {
+            return (
+              <ImageBlurLoading
+                key={i}
+                source={{ uri: item.image }}
+                thumbnailSource={{ uri: item.image }}
+                style={{ width: imgWidth, height: imgWidth }}
+              />
+            );
+          })}
         </Flex>
       ) : null}
       {userClick ? (

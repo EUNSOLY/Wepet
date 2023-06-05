@@ -1,6 +1,14 @@
 import React from "react";
 import { StyleSheet, TouchableOpacity, Dimensions } from "react-native";
-import { VStack, HStack, Text, Box, ScrollView, Pressable } from "native-base";
+import {
+  VStack,
+  HStack,
+  Text,
+  Box,
+  ScrollView,
+  Pressable,
+  Alert,
+} from "native-base";
 
 import HeaderComponent from "../components/HeaderComponent";
 import BsetUser from "../components/BsetUser";
@@ -9,12 +17,25 @@ import AnimalList from "../components/AnimalList";
 import ImageBlurLoading from "react-native-image-blur-loading";
 import { useEffect, useState } from "react";
 import PagePressComponent from "../components/PagePressComponent";
-
+import AsyncStorage from "@react-native-async-storage/async-storage";
 // 그라디언트
 import { LinearGradient } from "expo-linear-gradient";
 export default function MainPage({ navigation, route, dataList, animalData }) {
+  useEffect(() => {
+    navigation.addListener("beforeRemove", (e) => {
+      e.preventDefault();
+      Alert.alert("로그인상태입니다.");
+    });
+  }, []);
+  AsyncStorage.getItem("session", (err, result) => {
+    console.log("메인페이지입니다 session ------", result);
+  });
   const [data, setData] = useState(dataList);
   const [userData, setUserData] = useState([...dataList].slice(0, 5));
+
+  const [animalDataSlice, setAnimalDataSlice] = useState(
+    [...animalData].splice(0, 5)
+  );
 
   return (
     <ScrollView backgroundColor={"#fff"} w={"100%"}>
@@ -97,7 +118,7 @@ export default function MainPage({ navigation, route, dataList, animalData }) {
             navigation={navigation}
             route={route}
           />
-          {animalData.map((item, i) => {
+          {animalDataSlice.map((item, i) => {
             return (
               <AnimalList
                 item={item}

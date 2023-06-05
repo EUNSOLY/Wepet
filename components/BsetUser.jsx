@@ -17,7 +17,6 @@ import ImageBlurLoading from "react-native-image-blur-loading";
 import { useState, useEffect } from "react";
 
 export default function BsetUser({ navigation, route, item }) {
-  console.log(item);
   const goFeed = () => {
     navigation.navigate("FeedPage", { user: item });
   };

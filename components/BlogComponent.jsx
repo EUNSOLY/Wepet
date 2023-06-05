@@ -19,7 +19,6 @@ import ImageBlurLoading from "react-native-image-blur-loading";
 import { Ionicons } from "@expo/vector-icons";
 
 export default function BlogComponent({ navigation, route, i, content }) {
-  console.log(content);
   const goDetail = () => {
     console.log("디테일페이지 이동");
     navigation.navigate("DetailPage", { data: content });

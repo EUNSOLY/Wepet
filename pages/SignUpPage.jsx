@@ -15,8 +15,10 @@ import {
 import InputItem from "../components/InputItem";
 import SnsButton from "../components/SnsButton";
 
-import { auth } from "../config/fireBase";
+import { auth, db } from "../config/fireBase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
+import { doc, setDoc } from "firebase/firestore";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useState } from "react";
 
 export default function SignUpPage({ navigation, route }) {
@@ -26,10 +28,8 @@ export default function SignUpPage({ navigation, route }) {
   const [passwordError, setPasswordError] = useState("");
   const [nickName, setnickName] = useState("");
   const [NickNameError, setNickNameError] = useState("");
-  const [passwordConfirm, setPasswordConfirm] = useState("");
-  const [passwordConfirmError, setPasswordConfirmError] = useState("");
-  const goLogoin = () => {
-    console.log("회원가입 시작");
+
+  const goSignUp = () => {
     if (nickName === "") {
       setNickNameError("반려견이름을 입력해주세요");
       return false;
@@ -48,13 +48,23 @@ export default function SignUpPage({ navigation, route }) {
     } else {
       setPasswordError("");
     }
-    console.log("조건문통과");
+
     //회원가입 처리
-    createUserWithEmailAndPassword(auth, email, password)
+    createUserWithEmailAndPassword(auth, email, password, nickName)
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
+        AsyncStorage.setItem("session", email);
         console.log("가입성공", user);
+        const userRef = doc(db, "users", user.uid);
+        setDoc(userRef, {
+          uid: user.uid,
+          email: user.email,
+          nickName: nickName,
+        });
+        AsyncStorage.getItem("session", (err, result) => {
+          console.log("회원가입 페이지 ===session", result);
+        });
         // goSignin();
       })
       .catch((error) => {
@@ -63,7 +73,7 @@ export default function SignUpPage({ navigation, route }) {
         console.log("가입실패", errorCode, errorMessage);
       });
 
-    // navigation.navigate("SignInPage");
+    navigation.navigate("SignInPage");
   };
 
   const setEmailFunc = (itemInputEmail) => {
@@ -77,6 +87,7 @@ export default function SignUpPage({ navigation, route }) {
 
   const setNickNameFunc = (itemInputNickName) => {
     // 닉네임 상태값 관리 함수
+
     setnickName(itemInputNickName);
   };
 
@@ -120,7 +131,7 @@ export default function SignUpPage({ navigation, route }) {
         />
       </VStack>
 
-      <Button backgroundColor={"#009FF6"} w={"30%"} onPress={goLogoin}>
+      <Button backgroundColor={"#009FF6"} w={"30%"} onPress={goSignUp}>
         <Text fontFamily={"SUITE-Light"} color={"#fff"} fontSize={12}>
           회원가입
         </Text>

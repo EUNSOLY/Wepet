@@ -20,22 +20,24 @@ import MapView from "react-native-maps";
 import { PROVIDER_GOOGLE, Marker } from "react-native-maps";
 export default function AnimalDetailPage({ navigation, route }) {
   const userImage = require("../assets/post.png");
+  console.log(route.params.content.위도);
+  console.log(route.params.content.경도);
   const List = route.params.content;
-  const listLa = List.latitude;
-  const listLo = List.longitude;
+  const listLa = List.위도;
+  const listLo = List.경도;
 
   return (
     <ScrollView backgroundColor={"#fff"}>
       <HeaderComponent navigation={navigation} route={route} />
 
       <Center w={"100%"} h={200}>
-        <MapView // 셀프클로징해도 되지만 후의 마커를 위해서
+        <MapView
           style={styles.map}
           initialRegion={{
             latitude: listLa,
             longitude: listLo,
-            latitudeDelta: 0.0005,
-            longitudeDelta: 0.0005,
+            latitudeDelta: 0.0405,
+            longitudeDelta: 0.0505,
           }}
           provider={PROVIDER_GOOGLE}
         >
@@ -46,7 +48,7 @@ export default function AnimalDetailPage({ navigation, route }) {
             }}
             pinColor="#ff1414"
             title="하이"
-            description="테스트"
+            // description="테스트"
           />
         </MapView>
       </Center>

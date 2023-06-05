@@ -13,7 +13,6 @@ import HeaderComponent from "../components/HeaderComponent";
 import CommemtComponent from "../components/CommemtComponent";
 const userImage = require("../assets/post.png");
 export default function CommentPage({ navigation, route, data }) {
-  console.log(data);
   return (
     <ScrollView backgroundColor={"#fff"}>
       {/* <HeaderComponent navigation={navigation} route={route} /> */}

@@ -17,7 +17,8 @@ import { useFonts } from "expo-font";
 
 // 데이터바인딩
 import testData from "./data/testData";
-import animal from "./data/AnimalhospiceData";
+import animal from "./data/AnimalhospiceData.json";
+
 export default function App() {
   const [data, setData] = useState([]);
   const [animalData, setAnimalData] = useState([]);

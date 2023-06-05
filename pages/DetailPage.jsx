@@ -6,7 +6,6 @@ import ImageBlurLoading from "react-native-image-blur-loading";
 import { useState, useEffect } from "react";
 import { Ionicons } from "@expo/vector-icons";
 export default function DetailPage({ navigation, route, dataList }) {
-  // console.log("디테알", route.params);
   let [list, setList] = useState(route.params.data);
   const goCommemt = (e) => {
     console.log("코멘트 페이지이동");

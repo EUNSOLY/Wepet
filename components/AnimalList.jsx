@@ -18,12 +18,12 @@ export default function AnimalList({ item, navigation, route }) {
           />
           <Box px={2} overflow={"hidden"} w={"100%"}>
             <Text color={"#232323"} fontFamily={"SUITE-Bold"} w={"80%"}>
-              {item.name}
+              {item.업소명}
             </Text>
             <Text color={"#232323"} fontFamily={"SUITE-Light"}>
-              {item.adrees}
+              {item.도로명주소}
             </Text>
-            <ScrollView w={"80%"} horizontal={true}>
+            {/* <ScrollView w={"80%"} horizontal={true}>
               {item.comment.map((item, i) => {
                 return (
                   <Text key={i} color={"#C8C8C8"} fontFamily={"SUITE-Light"}>
@@ -31,7 +31,7 @@ export default function AnimalList({ item, navigation, route }) {
                   </Text>
                 );
               })}
-            </ScrollView>
+            </ScrollView> */}
           </Box>
         </HStack>
       </VStack>

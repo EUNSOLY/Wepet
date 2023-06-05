@@ -44,7 +44,7 @@ export default function InputItem({ title, icon, type, error, setFunc }) {
           type={type}
           fontSize={12}
           fontFamily={"SUITE-Bold"}
-          onChange={(text) => setFunc(text)}
+          onChangeText={(text) => setFunc(text.trim())}
         />
       </FormControl.Label>
       <Text fontFamily={"SUITE-Light"} fontSize={11} color={"red.500"} pl={5}>

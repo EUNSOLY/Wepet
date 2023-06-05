@@ -24,7 +24,6 @@ export default function TitleComponent({
   data,
 }) {
   const goCommu = () => {
-    console.log(subtitle);
     if (more == "블로그목록더보기") {
       navigation.navigate("CommunityPage", { content: data });
     } else if (more == "동물병원더보기") {

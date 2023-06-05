@@ -16,10 +16,11 @@ import FollowComponent from "../components/FollowComponent";
 import PagePressComponent from "../components/PagePressComponent";
 import { Ionicons } from "@expo/vector-icons";
 import { useState } from "react";
-const my = require("../assets/user1.png");
+
 const imgWidth = Dimensions.get("window").width / 3;
 export default function FeedPage({ navigation, route, user }) {
   const myUser = route.params.user;
+  console.log(myUser);
   const [postClick, setPostClick] = useState(true);
   const [userClick, setUserClick] = useState(false);
   const [likeClick, setLikeClick] = useState(false);
@@ -136,11 +137,11 @@ export default function FeedPage({ navigation, route, user }) {
       </HStack>
       {postClick ? (
         <Flex flexDirection={"row"} flexWrap={"wrap"} borderColor={"red"}>
-          <ImageComponent />
-          <ImageComponent />
-          <ImageComponent />
-          <ImageComponent />
-          <ImageComponent />
+          <ImageBlurLoading
+            source={{ uri: myUser.image }}
+            thumbnailSource={{ uri: myUser.image }}
+            style={{ width: imgWidth, height: imgWidth }}
+          />
         </Flex>
       ) : null}
       {userClick ? (
@@ -154,11 +155,11 @@ export default function FeedPage({ navigation, route, user }) {
       ) : null}
       {likeClick ? (
         <Flex flexDirection={"row"} flexWrap={"wrap"} borderColor={"red"}>
-          <ImageComponent />
-          <ImageComponent />
-          <ImageComponent />
-          <ImageComponent />
-          <ImageComponent />
+          <ImageBlurLoading
+            source={{ uri: myUser.image }}
+            thumbnailSource={{ uri: myUser.image }}
+            style={{ width: imgWidth, height: imgWidth }}
+          />
         </Flex>
       ) : null}
     </ScrollView>
