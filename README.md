@@ -38,16 +38,12 @@ Wepet은 반려동물들과의 추억을 함께 할 수 있도록 반려SNS형�
 
 ### 📌사용 기술
 
-<img src="https://img.shields.io/badge/react-61DAFB?style=flat&logo=react&logoColor=black"/> 
-<img src="https://img.shields.io/badge/expo-000020?style=flat&logo=expo&logoColor=white"/>
-<img src="https://img.shields.io/badge/Firebase-FFCA28?style=flat&logo=Firebase&logoColor=black"/> 
+<img src="https://img.shields.io/badge/react-61DAFB?style=flat&logo=react&logoColor=black"/> <img src="https://img.shields.io/badge/expo-000020?style=flat&logo=expo&logoColor=white"/> <img src="https://img.shields.io/badge/Firebase-FFCA28?style=flat&logo=Firebase&logoColor=black"/> 
 
 <br/>
 
 ## 📌사용 툴
- <img src="https://img.shields.io/badge/피그마-F24E1E?style=flatt&logo=Figma&logoColor=white"/>
- <img src="https://img.shields.io/badge/AdobePhotoshop-31A8FF?style=flatt&logo=Adobe Photoshop&logoColor=white"/> 
- <img src="https://img.shields.io/badge/Visual Studio Code-007ACC?style=flatt&logo=Visual Studio Code&logoColor=white"/>
+ <img src="https://img.shields.io/badge/피그마-F24E1E?style=flatt&logo=Figma&logoColor=white"/> <img src="https://img.shields.io/badge/AdobePhotoshop-31A8FF?style=flatt&logo=Adobe Photoshop&logoColor=white"/> <img src="https://img.shields.io/badge/Visual Studio Code-007ACC?style=flatt&logo=Visual Studio Code&logoColor=white"/>
 
 <br/>
 
