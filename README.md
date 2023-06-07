@@ -4,8 +4,7 @@
 
 ## 📃 App Mokup & Role play
 
-<img src='https://github.com/EUNSOLY/Wepet/blob/master/assets/README/mockup.jpg?raw=true' width="550px" alt='demo' /> 
-<img src='https://github.com/EUNSOLY/Wepet/blob/master/assets/README/qemu-system-x86_64_zbiMeJVVco.gif?raw=true' width="185px" alt='demo' />
+<img src='https://github.com/EUNSOLY/Wepet/blob/master/assets/README/mockup.jpg?raw=true' width="550px" alt='demo' /> <img src='https://github.com/EUNSOLY/Wepet/blob/master/assets/README/qemu-system-x86_64_zbiMeJVVco.gif?raw=true' width="185px" alt='demo' />
 
 <br/>
 
