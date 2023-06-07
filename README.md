@@ -58,13 +58,24 @@ Wepet은 반려동물들과의 추억을 함께 할 수 있도록 반려SNS형�
 3. firebase  
    회원가입, 로그인 데이터 저장을 진행하기 위해서 사용
 
-# 📌firebase 구조
+# 📌firebase 저장구조
 
-# 링크모음
+1. 회원가입
+   <img src="https://github.com/EUNSOLY/Wepet/blob/master/assets/README/user.png?raw=true"/>
+2. 회원가입 user 데이터베이스에 저장
+   <img src="https://github.com/EUNSOLY/Wepet/blob/master/assets/README/user.png?raw=true"/>
+3. 이미지 저장
+   <img src="https://github.com/EUNSOLY/Wepet/blob/master/assets/README/storege.png?raw=true"/>
+4. firebase 데이터 저장
+   <img src="https://github.com/EUNSOLY/Wepet/blob/master/assets/README/data.png?raw=true"/>
+
+# 🔗 디자인 및 제안서 링크
 
 <a href="https://www.figma.com/file/AkaPJsGNOCRLknd59u37pK/6%EC%B0%A8%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EB%94%94%EC%9E%90%EC%9D%B8?type=design&node-id=0%3A1&t=MmVc9tt7ikP727dy-1">
 1. Figma 바로가기
-</a>   
+</a>
+
 <a href="https://docs.google.com/presentation/d/1aS5Vmb6kGh2ZTD8p2Zpx4kAzzabmj_rrFLZvX8ObUwE/edit#slide=id.p">
-  <img src=""/>
+2. 약식제안서 
+<img src="https://github.com/EUNSOLY/Wepet/blob/master/assets/README/%ED%94%84%EB%A0%88%EC%A0%A0%ED%85%8C%EC%9D%B4%EC%85%98.png?raw=true"/>
 </a>
