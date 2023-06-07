@@ -2,13 +2,14 @@
 
 #### React Native를 활용한 어플리케이션 개발
 
-### 앱 시현 👉 GIF
+## 📃 App Mokup & Role play
 
-<img src='https://github.com/EUNSOLY/Wepet/blob/master/assets/README/mockup.jpg?raw=true' width="550px" alt='demo' />
+<img src='https://github.com/EUNSOLY/Wepet/blob/master/assets/README/mockup.jpg?raw=true' width="550px" alt='demo' /> 
+<img src='https://github.com/EUNSOLY/Wepet/blob/master/assets/README/qemu-system-x86_64_zbiMeJVVco.gif?raw=true' width="185px" alt='demo' />
 
 <br/>
 
-## 🖐프로젝트 소개
+# 🖐프로젝트 소개
 
 React-Native UI구현을 학습하기 위한 프로젝트로  
 expo를 기반으로 react-native, native-base, react-navigation을 사용하여 UI를 구성하였습니다.
@@ -21,7 +22,7 @@ Wepet은 반려동물들과의 추억을 함께 할 수 있도록 반려SNS형�
 
 <br/>
 
-### 📌 프로젝트 참여도
+# 📌 프로젝트 참여도
 
 1. 기획/ 디자인 : 100%
 1. 퍼블리싱 : 100%
@@ -30,31 +31,25 @@ Wepet은 반려동물들과의 추억을 함께 할 수 있도록 반려SNS형�
 
 <br/>
 
-### 📌 개발 기간
+# 📌 개발 기간
 
 2023.05.25 ~ 2023.06.05
 
 <br/>
 
-### 📌사용 기술
+# 📌사용 언어
 
-<img src="https://img.shields.io/badge/react-61DAFB?style=flat&logo=react&logoColor=black"/> <img src="https://img.shields.io/badge/expo-000020?style=flat&logo=expo&logoColor=white"/> <img src="https://img.shields.io/badge/Firebase-FFCA28?style=flat&logo=Firebase&logoColor=black"/>
-
-<br/>
-
-### 📌사용 툴
-
-<img src="https://img.shields.io/badge/피그마-F24E1E?style=flatt&logo=Figma&logoColor=white"/> <img src="https://img.shields.io/badge/AdobePhotoshop-31A8FF?style=flatt&logo=Adobe Photoshop&logoColor=white"/> <img src="https://img.shields.io/badge/Visual Studio Code-007ACC?style=flatt&logo=Visual Studio Code&logoColor=white"/>
+<img src="https://img.shields.io/badge/react-61DAFB?style=flat&logo=react&logoColor=black"/>
 
 <br/>
 
-### 📌 API
+# 📌사용 툴
 
-1. Google Map
+<img src="https://img.shields.io/badge/피그마-F24E1E?style=flatt&logo=Figma&logoColor=white"/> <img src="https://img.shields.io/badge/AdobePhotoshop-31A8FF?style=flatt&logo=Adobe Photoshop&logoColor=white"/> <img src="https://img.shields.io/badge/Visual Studio Code-007ACC?style=flatt&logo=Visual Studio Code&logoColor=white"/> <img src="https://img.shields.io/badge/expo-000020?style=flat&logo=expo&logoColor=white"/> <img src="https://img.shields.io/badge/Firebase-FFCA28?style=flat&logo=Firebase&logoColor=black"/>
 
 <br/>
 
-### 📌사용 라이브러리
+# 📌사용 라이브러리
 
 1. @react-native-async-storage/async-storage  
    firebase로 저장된 로그인 여부를 체크할 수 있도록 async-storage에 데이터값 저장하여 값이 있다면 로그인 상태 값이 없다면 로그아웃 상태
@@ -62,3 +57,14 @@ Wepet은 반려동물들과의 추억을 함께 할 수 있도록 반려SNS형�
    google Map 사용을 위해 라이브러리 사용
 3. firebase  
    회원가입, 로그인 데이터 저장을 진행하기 위해서 사용
+
+# 📌firebase 구조
+
+# 링크모음
+
+<a href="https://www.figma.com/file/AkaPJsGNOCRLknd59u37pK/6%EC%B0%A8%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EB%94%94%EC%9E%90%EC%9D%B8?type=design&node-id=0%3A1&t=MmVc9tt7ikP727dy-1">
+1. Figma 바로가기
+</a>   
+<a href="https://docs.google.com/presentation/d/1aS5Vmb6kGh2ZTD8p2Zpx4kAzzabmj_rrFLZvX8ObUwE/edit#slide=id.p">
+  <img src=""/>
+</a>
